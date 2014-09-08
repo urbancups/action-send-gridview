@@ -37,7 +37,7 @@ In the onCreate method of your activity, before you call setcontentview, you sho
     GridviewFragment.setMsgSubject("This is the subject");
 
 
-- Change the message url that you want to send:
+- Change the url that you want to send:
 
 
     GridviewFragment.setUrlPayload("www.tester.com");
