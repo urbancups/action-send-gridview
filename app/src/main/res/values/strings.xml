@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ActionSendIntentsGridview</string>
+    <string name="more_button">More</string>
+    <string name="sendtoclipboard_textcopied">Copied to Clipboard</string>
+</resources>
