@@ -68,6 +68,10 @@ public class IntentShare {
     }
 
     public void setPrecedenceMap(Map<String,Integer> precedenceMap) {
+        
+        //protect the object against someone attempting to pass an empty hashmap
+        if (!precedenceMap.isEmpty()) {
+        
         this.precedenceMap=precedenceMap;
 
         Map<String,Integer> UpperCasedMap = new HashMap<String, Integer>();
@@ -81,6 +85,7 @@ public class IntentShare {
 
         precedenceMap.clear();
         precedenceMap.putAll(UpperCasedMap);
+        }
     }
 
 }
