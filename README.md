@@ -9,6 +9,10 @@
  - Initially shows 6 intents with a 'More' button that when clicked slides down in an animation to reveal the rest of the intents on the device.
  
 
+![Before clicking the more button - initial list of 6 intents](https://cloud.githubusercontent.com/assets/8603749/4184607/252dcd1c-374c-11e4-9bb5-d51b135f0756.jpg)
+
+![After clicking the more button](https://cloud.githubusercontent.com/assets/8603749/4184608/25485df8-374c-11e4-8dcf-200ee113deb7.jpg)
+
 
 ## USAGE
 
