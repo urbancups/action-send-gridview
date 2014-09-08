@@ -67,12 +67,12 @@ public class IntentShare {
         return precedence;
     }
 
-    public void setPrecedenceMap(Map<String,Integer> precedenceMap) {
+    public void setPrecedenceMap(Map<String,Integer> inpPrecedenceMap) {
 
         //protect the object against someone attempting to pass an empty hashmap
-        if (!precedenceMap.isEmpty()) {
+        if (!inpPrecedenceMap.isEmpty()) {
 
-            this.precedenceMap = precedenceMap;
+            this.precedenceMap = inpPrecedenceMap;
 
             Map<String, Integer> UpperCasedMap = new HashMap<String, Integer>();
 
