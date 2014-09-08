@@ -8,8 +8,8 @@
  
  - Initially shows 6 intents with a 'More' button that when clicked slides down in an animation to reveal the rest of the intents on the device.
  
- 
- 
+
+
 ## USAGE
 
 Include GridviewFragment in your layout xml as a new fragment
@@ -42,7 +42,10 @@ In the onCreate method of your activity, before you call setcontentview, you sho
 
     GridviewFragment.setUrlPayload("www.tester.com");
 
-- Change the precedence of the intents on the screen:
+
+
+## PRECEDENCE OF INTENTS
+
 
 Step one - create a new map<String,Integer>
 
@@ -63,6 +66,7 @@ Once you are finished presetting the widget, you can display it onscreen by usin
     setcontentview(R.layout.your_layout)
 
 The default precedence list (if none is specified and passed to the widget) is "Twitter, Facebook Messenger, Copy to Clipboard, Facebook, Gmail, WhatsApp, Email". 
+
 
 
 ## DOWNLOAD
