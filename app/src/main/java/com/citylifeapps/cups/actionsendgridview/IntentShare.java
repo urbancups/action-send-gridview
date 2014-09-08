@@ -68,19 +68,24 @@ public class IntentShare {
     }
 
     public void setPrecedenceMap(Map<String,Integer> precedenceMap) {
-        this.precedenceMap=precedenceMap;
 
-        Map<String,Integer> UpperCasedMap = new HashMap<String, Integer>();
+        //protect the object against someone attempting to pass an empty hashmap
+        if (!precedenceMap.isEmpty()) {
 
-        for (Map.Entry<String, Integer> entry : precedenceMap.entrySet()) {
-            String key = entry.getKey();
-            Integer value = entry.getValue();
+            this.precedenceMap = precedenceMap;
 
-            UpperCasedMap.put(key.toUpperCase(),value);
+            Map<String, Integer> UpperCasedMap = new HashMap<String, Integer>();
+
+            for (Map.Entry<String, Integer> entry : precedenceMap.entrySet()) {
+                String key = entry.getKey();
+                Integer value = entry.getValue();
+
+                UpperCasedMap.put(key.toUpperCase(), value);
+            }
+
+            precedenceMap.clear();
+            precedenceMap.putAll(UpperCasedMap);
         }
-
-        precedenceMap.clear();
-        precedenceMap.putAll(UpperCasedMap);
     }
 
 }
