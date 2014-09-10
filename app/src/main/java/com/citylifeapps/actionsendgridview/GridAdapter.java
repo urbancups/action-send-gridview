@@ -1,4 +1,4 @@
-package com.citylifeapps.cups.actionsendgridview;
+package com.citylifeapps.actionsendgridview;
 
 import android.view.Gravity;
 import android.view.LayoutInflater;

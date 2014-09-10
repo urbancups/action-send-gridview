@@ -1,4 +1,4 @@
-package com.citylifeapps.cups.actionsendgridview;
+package com.citylifeapps.actionsendgridview;
 
 import android.animation.Animator;
 import android.animation.ObjectAnimator;
@@ -105,7 +105,7 @@ public class GridviewFragment extends Fragment {
                 else if (packageName.equals("com.google.android.apps.docs") && loadLabel.equals("Copy to clipboard")) {
                     intentShare.setLabel("Copy to Clipboard");
 
-                    Intent clipboardIntent = new Intent(getActivity(), com.citylifeapps.cups.actionsendgridview.SendToClipboard.class);
+                    Intent clipboardIntent = new Intent(getActivity(), com.citylifeapps.actionsendgridview.SendToClipboard.class);
                     clipboardIntent.putExtra("CupsText", msgPayload);
 
                     intentShare.setIntent(clipboardIntent);
@@ -145,9 +145,11 @@ public class GridviewFragment extends Fragment {
         urlPayload=inpUrlPayload;
     }
 
-    public static void setPrecedenceMap(Map<String,Integer> inpPrecedenceMap) {
-        precedenceMap.clear();
-        precedenceMap.putAll(inpPrecedenceMap);
+    public static void setPrecedence(String key, Integer value) {
+        if (precedenceMap.containsKey(key)) {
+            precedenceMap.remove(key);
+            precedenceMap.put(key, value);
+        }
     }
 
     @Override

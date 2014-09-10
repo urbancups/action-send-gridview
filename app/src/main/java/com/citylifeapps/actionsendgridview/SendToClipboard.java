@@ -1,4 +1,4 @@
-package com.citylifeapps.cups.actionsendgridview;
+package com.citylifeapps.actionsendgridview;
 
 import android.app.Activity;
 import android.content.Context;

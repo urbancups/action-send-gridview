@@ -23,7 +23,7 @@ Include GridviewFragment in your layout xml as a new fragment
 android:layout_width="wrap_content"
 android:layout_height="wrap_content"
 android:id="@+id/coupon_sharing_fragment"
-android:name="com.citylifeapps.cups.actionsendgridview.GridviewFragment"/>
+android:name="com.citylifeapps.actionsendgridview.GridviewFragment"/>
 ```
         
 In order to properly display this widget, you should allocate about half the area of a standard phone screen.
