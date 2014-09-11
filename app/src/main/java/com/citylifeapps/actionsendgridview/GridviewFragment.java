@@ -33,6 +33,7 @@ import java.util.Map;
 /**
  * Created by Yonatan Moskovich on 07/09/2014
  */
+@SuppressWarnings("unused")
 public class GridviewFragment extends Fragment {
 
     private GridView gridView; // a gridview of all the intents we want to show to the user
@@ -46,10 +47,10 @@ public class GridviewFragment extends Fragment {
     private ObjectAnimator animation;
     private boolean bAnimationCancelled=false;
 
-    static String msgSubject="Put some subject here";
-    static String msgPayload="Put some text here"; //text to be sent by the user
-    static String urlPayload="www.test.com";
-    static Map<String,Integer> precedenceMap= new HashMap<String,Integer>();
+    private static String msgSubject="Put some subject here";
+    private static String msgPayload="Put some text here"; //text to be sent by the user
+    private static String urlPayload="www.test.com";
+    private static final Map<String,Integer> precedenceMap= new HashMap<String,Integer>();
 
 
     @Override
@@ -133,22 +134,28 @@ public class GridviewFragment extends Fragment {
         return FragmentToDisplay;
     }
 
+    @SuppressWarnings("unused")
     public static void setMsgPayload(String inpMsgPayload) {
         msgPayload=inpMsgPayload;
     }
 
+    @SuppressWarnings("unused")
     public static void setMsgSubject(String inpMsgSubject) {
         msgSubject=inpMsgSubject;
     }
 
+    @SuppressWarnings("unused")
     public static void setUrlPayload(String inpUrlPayload) {
         urlPayload=inpUrlPayload;
     }
 
+    @SuppressWarnings("unused")
     public static void setPrecedence(String key, Integer value) {
         if (precedenceMap.containsKey(key)) {
             precedenceMap.remove(key);
             precedenceMap.put(key, value);
+        } else {
+            precedenceMap.put(key,value);
         }
     }
 
