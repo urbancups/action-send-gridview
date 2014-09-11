@@ -1,84 +1,85 @@
 # ActionSendGridview for Android
 
- Standalone widget for retrieving and displaying the action_SEND intents on the user's device. 
- 
- - Allows you to set the message/subject/url that will be sent. 
- 
- - Allows you to set a precedence list so that you can determine the precedence in which intents will be shown.
- 
- - Initially shows 6 intents with a 'More' button that when clicked slides down in an animation to reveal the rest of the intents on the device.
- 
+Standalone widget for retrieving and displaying the action_SEND intents on the user's device.
 
+Use to share information with other apps
+- Pulls the user's sharing options 
+- Allows you to set the message / subject / url that will be sent.
+- Allows you to set a precedence list so that you can determine the precedence in which intents will be shown.
+- Initially shows 6 intents with a 'More' button that when clicked slides down in an animation to reveal the rest of the intents on the device.
+ 
+#### Initial 6 sharing options
 ![Before clicking the more button - initial list of 6 intents](https://cloud.githubusercontent.com/assets/8603749/4184607/252dcd1c-374c-11e4-9bb5-d51b135f0756.jpg)
 
+#### After clicking the more button
 ![After clicking the more button](https://cloud.githubusercontent.com/assets/8603749/4184608/25485df8-374c-11e4-8dcf-200ee113deb7.jpg)
 
 
-## USAGE
+## Usage
 
 Include GridviewFragment in your layout xml as a new fragment
 
-```
+``` xml
 <fragment
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:id="@+id/coupon_sharing_fragment"
-android:name="com.citylifeapps.actionsendgridview.GridviewFragment"/>
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:id="@+id/coupon_sharing_fragment"
+	android:name="com.citylifeapps.cups.actionsendgridview.GridviewFragment"/>
 ```
         
 In order to properly display this widget, you should allocate about half the area of a standard phone screen.
 
 In the onCreate method of your activity, before you call setcontentview, you should initialize some values for the widget using the static methods provided:
 
-- Change the message text that you want to send:
+``` java
+// Change the message text that you want to send 
+GridviewFragment.setMsgPayload("This is the message text");
+
+// Change the message subject that you want to send
+GridviewFragment.setMsgSubject("This is the subject");
+
+// Change the url that you want to send
+GridviewFragment.setUrlPayload("www.tester.com");
+```
 
 
-    GridviewFragment.setMsgPayload("This is the message text");
+## Precedents Of Intents
 
-- Change the message subject that you want to send:
-
-
-    GridviewFragment.setMsgSubject("This is the subject");
-
-
-- Change the url that you want to send:
-
-
-    GridviewFragment.setUrlPayload("www.tester.com");
-
-
-
-## PRECEDENCE OF INTENTS
-
+If you want to change the predefined order of the intents shown on the screen, you can define precedence for each intent, in case it's found.
 
 Step one - create a new map<String,Integer>
 
-    private final Map<String,Integer> precedenceMap= new HashMap<String,Integer>();
-
+``` java
+private final Map<String,Integer> precedenceMap= new HashMap<String,Integer>();
+```
 
 Step two - populate the map. The key should be the label of the intent (for example, WhatsApp, Gmail, etc.) - this does not have to be case sensitive. The value should be the precedence you want to give the intent in the list of intents, in which lower numbers appear before larger numbers. 
 
-    precedenceMap.put("WhatsApp",1);
+``` java
+precedenceMap.put("WhatsApp",1);
+```
 
 
 Step three - pass your precedenceMap to the widget:
-
-    GridviewFragment.setPrecedenceMap(precedenceMap);
+``` java
+GridviewFragment.setPrecedenceMap(precedenceMap);
+```
 
 Once you are finished presetting the widget, you can display it onscreen by using 
-
-    setcontentview(R.layout.your_layout)
-
+``` java
+setcontentview(R.layout.your_layout)
+```
 The default precedence list (if none is specified and passed to the widget) is "Twitter, Facebook Messenger, Copy to Clipboard, Facebook, Gmail, WhatsApp, Email". 
 
 
 
-## DOWNLOAD
+## Download
 
-Clone the project from Github and reference it as a library project within your application &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ('file->import module&#8230;' in android studio).
+Clone the project from Github and reference it as a library project within your application  
+(`file --> import module...` in android studio).
 
 
-## LICENSE
+## License
 
 ```
 Copyright 2014 Urbancups, Inc.
