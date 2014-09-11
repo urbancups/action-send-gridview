@@ -2,6 +2,7 @@
 .factorypath
 .project
 .settings
+.gradle
 eclipsebin
 
 bin
