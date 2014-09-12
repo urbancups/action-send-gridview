@@ -8,11 +8,15 @@ Use to share information with other apps
 - Allows you to set a precedence list so that you can determine the precedence in which intents will be shown.
 - Initially shows 6 intents with a 'More' button that when clicked slides down in an animation to reveal the rest of the intents on the device.
  
+#### Example in app
+![device-2014-09-12-163449 copy](https://cloud.githubusercontent.com/assets/717076/4250388/058196da-3a83-11e4-9ee0-c3d1997d60a4.gif)
+
 #### Initial 6 sharing options
 ![Before clicking the more button - initial list of 6 intents](https://cloud.githubusercontent.com/assets/8603749/4184607/252dcd1c-374c-11e4-9bb5-d51b135f0756.jpg)
 
 #### After clicking the more button
 ![After clicking the more button](https://cloud.githubusercontent.com/assets/8603749/4184608/25485df8-374c-11e4-8dcf-200ee113deb7.jpg)
+
 
 
 ## Usage
