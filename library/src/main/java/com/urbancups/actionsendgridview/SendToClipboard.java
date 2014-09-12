@@ -5,8 +5,6 @@ import android.content.Context;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import com.urbancups.actionsendgridview.R;
-
 /**
  * Created by CUPS on 06/09/2014
  */
@@ -17,7 +15,7 @@ public class SendToClipboard extends Activity {
         super.onCreate(savedInstanceState);
 
         //get the application context
-        Context context=this.getApplicationContext();
+        Context context = this.getApplicationContext();
 
         //setup the clipboard manager
         final android.content.ClipboardManager clipboardManager = (android.content.ClipboardManager) context

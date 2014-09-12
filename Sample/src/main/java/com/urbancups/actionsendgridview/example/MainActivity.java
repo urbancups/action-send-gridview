@@ -3,8 +3,6 @@ package com.urbancups.actionsendgridview.example;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 
-import com.urbancups.actionsendgridview.example.R;
-
 
 /**
  * Created by Yonatan Moskovich on 08/09/2014

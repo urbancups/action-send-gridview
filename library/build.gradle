@@ -15,7 +15,7 @@ android {
     buildToolsVersion "19.1.0"
 
     defaultConfig {
-        applicationId "com.citylifeapps.actionsendgridview"
+        applicationId "com.urbancups.actionsendgridview"
         minSdkVersion 14
         targetSdkVersion 19
         versionCode 1

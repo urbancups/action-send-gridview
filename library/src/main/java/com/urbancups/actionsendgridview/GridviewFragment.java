@@ -22,8 +22,6 @@ import android.widget.Button;
 import android.widget.GridView;
 import android.widget.LinearLayout;
 
-import com.urbancups.actionsendgridview.R;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -35,24 +33,24 @@ import java.util.Map;
 /**
  * Created by Yonatan Moskovich on 07/09/2014
  */
-@SuppressWarnings("unused")
+
 public class GridviewFragment extends Fragment {
 
     private GridView gridView; // a gridview of all the intents we want to show to the user
-    private final List<IntentShare> intentShareListAll=new ArrayList<IntentShare>();
-    private final List<IntentShare> intentShareListToUse=new ArrayList<IntentShare>();
+    private final List<IntentShare> intentShareListAll = new ArrayList<IntentShare>();
+    private final List<IntentShare> intentShareListToUse = new ArrayList<IntentShare>();
     private Button btnMore; // the More button - to show the long list of intents
-    private boolean bMoreWasClicked=false; // did the user click on the More button?
+    private boolean bMoreWasClicked = false; // did the user click on the More button?
     private LinearLayout llCouponSharingMainMore;
     private LinearLayout llCouponSharingSubMore;
-    private AsyncPopulateIntents asyncPopulateIntents=new AsyncPopulateIntents();
+    private AsyncPopulateIntents asyncPopulateIntents = new AsyncPopulateIntents();
     private ObjectAnimator animation;
-    private boolean bAnimationCancelled=false;
+    private boolean bAnimationCancelled = false;
 
-    private static String msgSubject="Put some subject here";
-    private static String msgPayload="Put some text here"; //text to be sent by the user
-    private static String urlPayload="www.test.com";
-    private static final Map<String,Integer> precedenceMap= new HashMap<String,Integer>();
+    private static String msgSubject = "Put some subject here";
+    private static String msgPayload = "Put some text here"; //text to be sent by the user
+    private static String urlPayload = "www.test.com";
+    private static final Map<String, Integer> precedenceMap = new HashMap<String, Integer>();
 
 
     @Override
@@ -61,11 +59,11 @@ public class GridviewFragment extends Fragment {
         View FragmentToDisplay = inflater.inflate(R.layout.gridview_fragment, container, false);
 
         gridView = (GridView) FragmentToDisplay.findViewById(R.id.gridCouponSharing);
-        btnMore=(Button) FragmentToDisplay.findViewById(R.id.btnCouponSharingMore);
-        llCouponSharingMainMore=(LinearLayout) FragmentToDisplay.findViewById(R.id.llCouponSharingMainMore);
-        llCouponSharingSubMore=(LinearLayout) FragmentToDisplay.findViewById(R.id.llCouponSharingSubMore);
+        btnMore = (Button) FragmentToDisplay.findViewById(R.id.btnCouponSharingMore);
+        llCouponSharingMainMore = (LinearLayout) FragmentToDisplay.findViewById(R.id.llCouponSharingMainMore);
+        llCouponSharingSubMore = (LinearLayout) FragmentToDisplay.findViewById(R.id.llCouponSharingSubMore);
 
-        PackageManager packageManager=getActivity().getPackageManager();
+        PackageManager packageManager = getActivity().getPackageManager();
 
         //POPULATE A LIST OF ALL SHARE INTENTS
         Intent shareIntentTemplate = new Intent(Intent.ACTION_SEND);
@@ -81,12 +79,12 @@ public class GridviewFragment extends Fragment {
 
             // create a list of intentShare objects from the resolveInfo list
             for (ResolveInfo resolveInfo : resolveInfoList) {
-                IntentShare intentShare=new IntentShare();
+                IntentShare intentShare = new IntentShare();
 
                 intentShare.setPrecedenceMap(precedenceMap);
 
-                String packageName=resolveInfo.activityInfo.packageName;
-                String loadLabel=resolveInfo.activityInfo.loadLabel(packageManager).toString();
+                String packageName = resolveInfo.activityInfo.packageName;
+                String loadLabel = resolveInfo.activityInfo.loadLabel(packageManager).toString();
 
                 intentShare.setPackageName(packageName);
 
@@ -104,16 +102,14 @@ public class GridviewFragment extends Fragment {
                 if (packageName.equals("com.facebook.orca")) {
                     intentShare.setLabel("Facebook Messenger");
                     intentShare.setPayload(urlPayload);
-                }
-                else if (packageName.equals("com.google.android.apps.docs") && loadLabel.equals("Copy to clipboard")) {
+                } else if (packageName.equals("com.google.android.apps.docs") && loadLabel.equals("Copy to clipboard")) {
                     intentShare.setLabel("Copy to Clipboard");
 
                     Intent clipboardIntent = new Intent(getActivity(), SendToClipboard.class);
                     clipboardIntent.putExtra("CupsText", msgPayload);
 
                     intentShare.setIntent(clipboardIntent);
-                }
-                else {
+                } else {
                     intentShare.setLabel(loadLabel);
                     intentShare.setPayload(msgPayload);
                 }
@@ -138,17 +134,17 @@ public class GridviewFragment extends Fragment {
 
     @SuppressWarnings("unused")
     public static void setMsgPayload(String inpMsgPayload) {
-        msgPayload=inpMsgPayload;
+        msgPayload = inpMsgPayload;
     }
 
     @SuppressWarnings("unused")
     public static void setMsgSubject(String inpMsgSubject) {
-        msgSubject=inpMsgSubject;
+        msgSubject = inpMsgSubject;
     }
 
     @SuppressWarnings("unused")
     public static void setUrlPayload(String inpUrlPayload) {
-        urlPayload=inpUrlPayload;
+        urlPayload = inpUrlPayload;
     }
 
     @SuppressWarnings("unused")
@@ -157,7 +153,7 @@ public class GridviewFragment extends Fragment {
             precedenceMap.remove(key);
             precedenceMap.put(key, value);
         } else {
-            precedenceMap.put(key,value);
+            precedenceMap.put(key, value);
         }
     }
 
@@ -166,13 +162,13 @@ public class GridviewFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
         //CREATE A PRECEDENCE MAP SO WE CAN SET THE ORDER OF ICONS IN THE ACTIVITY
-        precedenceMap.put("Twitter",0);
-        precedenceMap.put("Facebook Messenger",1);
-        precedenceMap.put("Copy to Clipboard",2);
-        precedenceMap.put("Facebook",3);
-        precedenceMap.put("Gmail",4);
-        precedenceMap.put("WhatsApp",5);
-        precedenceMap.put("Email",6);
+        precedenceMap.put("Twitter", 0);
+        precedenceMap.put("Facebook Messenger", 1);
+        precedenceMap.put("Copy to Clipboard", 2);
+        precedenceMap.put("Facebook", 3);
+        precedenceMap.put("Gmail", 4);
+        precedenceMap.put("WhatsApp", 5);
+        precedenceMap.put("Email", 6);
 
     }
 
@@ -207,7 +203,7 @@ public class GridviewFragment extends Fragment {
 
                     bMoreWasClicked = true;
 
-                    asyncPopulateIntents=new AsyncPopulateIntents();
+                    asyncPopulateIntents = new AsyncPopulateIntents();
                     asyncPopulateIntents.execute();
 
                     animation = ObjectAnimator.ofFloat(llCouponSharingSubMore, "y", heightRelativeToTop, height);
@@ -222,7 +218,7 @@ public class GridviewFragment extends Fragment {
                             btnMore.setVisibility(View.GONE);
 
                             if (bAnimationCancelled) {
-                                bAnimationCancelled=false;
+                                bAnimationCancelled = false;
                             }
                         }
 
@@ -278,7 +274,7 @@ public class GridviewFragment extends Fragment {
             return myView.getTop() + getRelativeTop((View) myView.getParent());
     }
 
-    private class AsyncPopulateIntents extends AsyncTask<Void,Void,Void> {
+    private class AsyncPopulateIntents extends AsyncTask<Void, Void, Void> {
 
         @Override
         protected Void doInBackground(Void... params) {
@@ -304,9 +300,9 @@ public class GridviewFragment extends Fragment {
         super.onPause();
 
         // stopping the activity so cancel the animation if it's running
-        if (animation!=null && animation.isRunning()) {
+        if (animation != null && animation.isRunning()) {
             animation.cancel();
-            bAnimationCancelled=true;
+            bAnimationCancelled = true;
         }
 
         // stopping the activity so cancel the asynctask if it's running

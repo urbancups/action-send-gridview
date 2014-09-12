@@ -7,21 +7,18 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.urbancups.actionsendgridview.R;
-
 import java.util.List;
 
 /**
  * Created by Yonatan Moskovich on 07/09/2014
  */
-public class GridAdapter extends BaseAdapter
-{
+public class GridAdapter extends BaseAdapter {
     private final List<IntentShare> couponShareList;
 
     public GridAdapter(List<IntentShare> couponShareList) {
         super();
 
-        this.couponShareList=couponShareList;
+        this.couponShareList = couponShareList;
 
     }
 
@@ -49,14 +46,14 @@ public class GridAdapter extends BaseAdapter
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        ViewHolder holder=new ViewHolder();
+        ViewHolder holder = new ViewHolder();
 
         if (convertView == null) {
 
             final LayoutInflater mInflater = LayoutInflater.from(parent.getContext());
-            convertView=   mInflater.inflate(R.layout.gridview_item, parent, false);
+            convertView = mInflater.inflate(R.layout.gridview_item, parent, false);
 
-            holder.label=(TextView) convertView.findViewById(R.id.intent_label);
+            holder.label = (TextView) convertView.findViewById(R.id.intent_label);
 
             convertView.setTag(holder);
         } else {
@@ -70,12 +67,12 @@ public class GridAdapter extends BaseAdapter
 
         holder.label.setMaxLines(2);
         holder.label.setGravity(Gravity.CENTER);
-        holder.label.setPadding(0,padding,0,0);
+        holder.label.setPadding(0, padding, 0, 0);
 
 
-        IntentShare intentShare=couponShareList.get(position);
+        IntentShare intentShare = couponShareList.get(position);
 
-        if (intentShare!=null) {
+        if (intentShare != null) {
             holder.label.setText(intentShare.getLabel());
             holder.label.setCompoundDrawablesWithIntrinsicBounds(null, intentShare.getBitmap(), null, null);
         }

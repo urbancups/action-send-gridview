@@ -16,7 +16,7 @@ android {
     buildToolsVersion "19.1.0"
 
     defaultConfig {
-        applicationId "com.citylifeapps.cups.fragmenttester"
+        applicationId "com.urbancups.actionsendgridview.example"
         minSdkVersion 14
         targetSdkVersion 19
         versionCode 1
