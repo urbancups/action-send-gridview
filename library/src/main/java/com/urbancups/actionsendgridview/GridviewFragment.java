@@ -1,4 +1,4 @@
-package com.citylifeapps.actionsendgridview;
+package com.urbancups.actionsendgridview;
 
 import android.animation.Animator;
 import android.animation.ObjectAnimator;
@@ -21,6 +21,8 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.LinearLayout;
+
+import com.urbancups.actionsendgridview.R;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -106,7 +108,7 @@ public class GridviewFragment extends Fragment {
                 else if (packageName.equals("com.google.android.apps.docs") && loadLabel.equals("Copy to clipboard")) {
                     intentShare.setLabel("Copy to Clipboard");
 
-                    Intent clipboardIntent = new Intent(getActivity(), com.citylifeapps.actionsendgridview.SendToClipboard.class);
+                    Intent clipboardIntent = new Intent(getActivity(), SendToClipboard.class);
                     clipboardIntent.putExtra("CupsText", msgPayload);
 
                     intentShare.setIntent(clipboardIntent);

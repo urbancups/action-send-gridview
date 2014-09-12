@@ -1,7 +1,9 @@
-package com.citylifeapps.cups.fragmenttester;
+package com.urbancups.actionsendgridview.example;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+
+import com.urbancups.actionsendgridview.example.R;
 
 
 /**

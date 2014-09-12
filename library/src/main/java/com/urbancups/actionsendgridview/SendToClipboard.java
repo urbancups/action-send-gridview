@@ -1,9 +1,11 @@
-package com.citylifeapps.actionsendgridview;
+package com.urbancups.actionsendgridview;
 
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.widget.Toast;
+
+import com.urbancups.actionsendgridview.R;
 
 /**
  * Created by CUPS on 06/09/2014

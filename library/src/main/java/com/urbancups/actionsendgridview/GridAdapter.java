@@ -1,4 +1,4 @@
-package com.citylifeapps.actionsendgridview;
+package com.urbancups.actionsendgridview;
 
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -6,6 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+
+import com.urbancups.actionsendgridview.R;
 
 import java.util.List;
 
