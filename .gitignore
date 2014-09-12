@@ -2,9 +2,11 @@
 .factorypath
 .project
 .settings
+local.properties
+eclipsebin
+
 .gradle
 gradle*
-eclipsebin
 
 bin
 gen
