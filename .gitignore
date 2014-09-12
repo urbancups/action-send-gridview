@@ -6,7 +6,7 @@ local.properties
 eclipsebin
 
 .gradle
-gradle*
+
 
 bin
 gen
