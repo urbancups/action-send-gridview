@@ -47,23 +47,14 @@ GridviewFragment.setUrlPayload("www.tester.com");
 
 If you want to change the predefined order of the intents shown on the screen, you can define precedence for each intent, in case it's found.
 
-Step one - create a new map<String,Integer>
+Changing the precedence:
 
-``` java
-private final Map<String,Integer> precedenceMap= new HashMap<String,Integer>();
+```
+setPrecedence(intent_name, value);
 ```
 
-Step two - populate the map. The key should be the label of the intent (for example, WhatsApp, Gmail, etc.) - this does not have to be case sensitive. The value should be the precedence you want to give the intent in the list of intents, in which lower numbers appear before larger numbers. 
-
-``` java
-precedenceMap.put("WhatsApp",1);
-```
-
-
-Step three - pass your precedenceMap to the widget:
-``` java
-GridviewFragment.setPrecedenceMap(precedenceMap);
-```
+intent_name (String) - The intent_name should be the label name of the intent, for example Twitter.
+value (Integer) - The value should be the precedence of the intent whereby lower numbers are higher precedence and would appear sooner in the list. 
 
 Once you are finished presetting the widget, you can display it onscreen by using 
 ``` java
