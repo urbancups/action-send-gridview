@@ -1,1 +1,1 @@
-include ':ActionSendGridview', ':FragmentTester', ':fragmentTester'
+include ':actionSendGridview', ':example'
