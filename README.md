@@ -53,8 +53,9 @@ Changing the precedence:
 setPrecedence(intent_name, value);
 ```
 
-intent_name (String) - The intent_name should be the label name of the intent, for example Twitter.
-value (Integer) - The value should be the precedence of the intent whereby lower numbers are higher precedence and would appear sooner in the list. 
+- intent_name (String) - The intent_name should be the label name of the intent, for example Twitter.
+
+- value (Integer) - The value should be the precedence of the intent whereby lower numbers are higher precedence and would appear sooner in the list. 
 
 Once you are finished presetting the widget, you can display it onscreen by using 
 ``` java
