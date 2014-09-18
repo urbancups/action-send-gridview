@@ -16,7 +16,7 @@ android {
 
     defaultConfig {
         applicationId "com.urbancups.actionsendgridview"
-        minSdkVersion 14
+        minSdkVersion 7
         targetSdkVersion 19
         versionCode 1
         versionName "1.0"
