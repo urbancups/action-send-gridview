@@ -2,6 +2,7 @@ package com.urbancups.actionsendgridview;
 
 import android.animation.Animator;
 import android.animation.ObjectAnimator;
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
@@ -172,7 +173,7 @@ public class GridviewFragment extends Fragment {
 
     }
 
-    @Override
+    @Override @SuppressLint("NewApi")
     public void onResume() {
         super.onResume();
 
@@ -196,7 +197,14 @@ public class GridviewFragment extends Fragment {
 
                     Display display = getActivity().getWindowManager().getDefaultDisplay();
                     Point size = new Point();
-                    display.getSize(size);
+
+
+                    if(android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.HONEYCOMB_MR2) {
+                        display.getSize(size);
+                    } else {
+                        getActivity().getWindowManager().getDefaultDisplay().getSize(size);
+                    }
+
                     int height = size.y;
 
                     int heightRelativeToTop = getRelativeTop(llCouponSharingMainMore);
