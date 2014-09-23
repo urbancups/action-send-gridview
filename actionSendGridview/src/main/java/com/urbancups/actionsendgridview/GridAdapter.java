@@ -13,18 +13,25 @@ import java.util.List;
  * Created by Yonatan Moskovich on 07/09/2014
  */
 public class GridAdapter extends BaseAdapter {
-    private final List<IntentShare> couponShareList;
+    private List<IntentShare> couponShareList;
+    private final float scale;
 
-    public GridAdapter(List<IntentShare> couponShareList) {
+    public GridAdapter(float scale) {
         super();
+        this.scale=scale;
+    }
 
-        this.couponShareList = couponShareList;
-
+    public void setAdapterList(List<IntentShare> couponShareList) {
+        this.couponShareList=couponShareList;
     }
 
     @Override
     public int getCount() {
-        return couponShareList.size();
+        if (couponShareList!=null) {
+            return couponShareList.size();
+        } else {
+            return 0;
+        }
     }
 
     @Override
@@ -37,44 +44,36 @@ public class GridAdapter extends BaseAdapter {
         return position;
     }
 
-    private class ViewHolder {
-        //ImageView icon;
-        //AutofitTextView label;
-        TextView label;
-    }
-
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        ViewHolder holder = new ViewHolder();
+        TextView intentPlaceholder;
 
         if (convertView == null) {
 
             final LayoutInflater mInflater = LayoutInflater.from(parent.getContext());
             convertView = mInflater.inflate(R.layout.gridview_item, parent, false);
 
-            holder.label = (TextView) convertView.findViewById(R.id.intent_label);
+            intentPlaceholder = (TextView) convertView.findViewById(R.id.intent_label);
 
-            convertView.setTag(holder);
+            convertView.setTag(intentPlaceholder);
         } else {
-            holder.label = (TextView) convertView.getTag();
+            intentPlaceholder = (TextView) convertView.getTag();
         }
 
-        holder.label.setTag(convertView);
+        intentPlaceholder.setTag(convertView);
 
-        final float scale = parent.getContext().getResources().getDisplayMetrics().density;
         int padding = (int) (10 * scale + 0.5f);
 
-        holder.label.setMaxLines(2);
-        holder.label.setGravity(Gravity.CENTER);
-        holder.label.setPadding(0, padding, 0, 0);
-
+        intentPlaceholder.setMaxLines(2);
+        intentPlaceholder.setGravity(Gravity.CENTER);
+        intentPlaceholder.setPadding(0, padding, 0, 0);
 
         IntentShare intentShare = couponShareList.get(position);
 
         if (intentShare != null) {
-            holder.label.setText(intentShare.getLabel());
-            holder.label.setCompoundDrawablesWithIntrinsicBounds(null, intentShare.getBitmap(), null, null);
+            intentPlaceholder.setText(intentShare.getLabel());
+            intentPlaceholder.setCompoundDrawablesWithIntrinsicBounds(null, intentShare.getBitmap(), null, null);
         }
 
         return convertView;
