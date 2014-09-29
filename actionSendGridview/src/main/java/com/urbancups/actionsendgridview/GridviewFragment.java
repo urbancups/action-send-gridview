@@ -52,8 +52,8 @@ public class GridviewFragment extends Fragment {
 
     private GridView gridView; // a gridview of all the intents we want to show to the user
     private Button btnMore; // the More button - to show the long list of intents
-    private LinearLayout llCouponSharingMainMore;
-    private LinearLayout llCouponSharingSubMore;
+    private LinearLayout llIntentMainMore;
+    private LinearLayout llIntentSubMore;
 
     @SuppressWarnings("unused")
     public static void setMsgPayload(String inpMsgPayload) {
@@ -86,12 +86,12 @@ public class GridviewFragment extends Fragment {
         //inflate the layout
         View FragmentToDisplay = inflater.inflate(R.layout.gridview_fragment, container, false);
 
-        gridView = (GridView) FragmentToDisplay.findViewById(R.id.gridCouponSharing);
+        gridView = (GridView) FragmentToDisplay.findViewById(R.id.gridIntents);
         gridView.setAdapter(gridAdapter);
 
-        btnMore = (Button) FragmentToDisplay.findViewById(R.id.btnCouponSharingMore);
-        llCouponSharingMainMore = (LinearLayout) FragmentToDisplay.findViewById(R.id.llCouponSharingMainMore);
-        llCouponSharingSubMore = (LinearLayout) FragmentToDisplay.findViewById(R.id.llCouponSharingSubMore);
+        btnMore = (Button) FragmentToDisplay.findViewById(R.id.btnIntentMore);
+        llIntentMainMore = (LinearLayout) FragmentToDisplay.findViewById(R.id.llIntentMainMore);
+        llIntentSubMore = (LinearLayout) FragmentToDisplay.findViewById(R.id.llIntentSubMore);
 
         //draw the intents in the grid
         asyncPopulateIntents.execute();
@@ -235,11 +235,11 @@ public class GridviewFragment extends Fragment {
 
                     int heightOfScreen = size.y;
 
-                    int heightRelativeToTop = getRelativeTop(llCouponSharingMainMore);
+                    int heightRelativeToTop = getRelativeTop(llIntentMainMore);
 
 
                     //create the animation
-                    animation = ObjectAnimator.ofFloat(llCouponSharingSubMore, "y", heightRelativeToTop, heightOfScreen);
+                    animation = ObjectAnimator.ofFloat(llIntentSubMore, "y", heightRelativeToTop, heightOfScreen);
 
                     animation.addListener(new Animator.AnimatorListener() {
                         @Override

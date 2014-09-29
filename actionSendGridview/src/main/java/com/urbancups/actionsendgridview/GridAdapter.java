@@ -13,7 +13,7 @@ import java.util.List;
  * Created by Yonatan Moskovich on 07/09/2014
  */
 public class GridAdapter extends BaseAdapter {
-    private List<IntentShare> couponShareList;
+    private List<IntentShare> intentList;
     private final float scale;
 
     public GridAdapter(float scale) {
@@ -21,14 +21,14 @@ public class GridAdapter extends BaseAdapter {
         this.scale=scale;
     }
 
-    public void setAdapterList(List<IntentShare> couponShareList) {
-        this.couponShareList=couponShareList;
+    public void setAdapterList(List<IntentShare> intentList) {
+        this.intentList=intentList;
     }
 
     @Override
     public int getCount() {
-        if (couponShareList!=null) {
-            return couponShareList.size();
+        if (intentList!=null) {
+            return intentList.size();
         } else {
             return 0;
         }
@@ -36,7 +36,7 @@ public class GridAdapter extends BaseAdapter {
 
     @Override
     public Object getItem(int position) {
-        return couponShareList.get(position);
+        return intentList.get(position);
     }
 
     @Override
@@ -69,7 +69,7 @@ public class GridAdapter extends BaseAdapter {
         intentPlaceholder.setGravity(Gravity.CENTER);
         intentPlaceholder.setPadding(0, padding, 0, 0);
 
-        IntentShare intentShare = couponShareList.get(position);
+        IntentShare intentShare = intentList.get(position);
 
         if (intentShare != null) {
             intentPlaceholder.setText(intentShare.getLabel());

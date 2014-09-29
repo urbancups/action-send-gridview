@@ -9,52 +9,52 @@
     tools:context="com.citylifeapps.activites.InviteFriend"
     >
 
-    <FrameLayout
-        android:id="@+id/flCouponSharing"
+<FrameLayout
+    android:id="@+id/flCouponSharing"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:foregroundGravity="center_horizontal"
+    android:background="@android:color/transparent">
+    <GridView
+        android:paddingTop="20dp"
+        android:id="@+id/gridIntents"
+        android:numColumns="3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:background="@android:color/black"
+        android:overScrollMode="never"
+        />
+
+    <LinearLayout
+        android:id="@+id/llIntentMainMore"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:foregroundGravity="center_horizontal"
+        android:orientation="vertical"
         android:background="@android:color/transparent">
-        <GridView
-            android:paddingTop="20dp"
-            android:id="@+id/gridCouponSharing"
-            android:numColumns="3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:background="@android:color/black"
-            android:overScrollMode="never"
-            />
-
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@android:color/transparent"/>
         <LinearLayout
-            android:id="@+id/llCouponSharingMainMore"
+            android:id="@+id/llIntentSubMore"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:background="@android:color/transparent">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:background="@android:color/transparent"/>
-            <LinearLayout
-                android:id="@+id/llCouponSharingSubMore"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="top|center_horizontal"
-                android:background="@android:color/black">
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/btnCouponSharingMore"
-                    android:background="@android:color/transparent"
-                    android:text="@string/more_button"
-                    android:textColor="@android:color/white"
-                    />
+            android:gravity="top|center_horizontal"
+            android:background="@android:color/black">
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnIntentMore"
+        android:background="@android:color/transparent"
+        android:text="@string/more_button"
+        android:textColor="@android:color/white"
+        />
 
-            </LinearLayout>
-        </LinearLayout>
+</LinearLayout>
+    </LinearLayout>
 
-    </FrameLayout>
+</FrameLayout>
 
 
 </LinearLayout>
